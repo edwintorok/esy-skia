@@ -65,10 +65,8 @@ int SkRTree::CountNodes(int branches, SkScalar aspectRatio) {
     if (branches == 1) {
         return 1;
     }
-    int numBranches = branches / kMaxChildren;
     int remainder   = branches % kMaxChildren;
     if (remainder > 0) {
-        numBranches++;
         if (remainder >= kMinChildren) {
             remainder = 0;
         } else {
@@ -109,12 +107,10 @@ SkRTree::Branch SkRTree::bulkLoad(SkTDArray<Branch>* branches, int level) {
     // We might sort our branches here, but we expect Blink gives us a reasonable x,y order.
     // Skipping a call to sort (in Y) here resulted in a 17% win for recording with negligible
     // difference in playback speed.
-    int numBranches = branches->count() / kMaxChildren;
-    int remainder   = branches->count() % kMaxChildren;
+    int remainder   = (int)branches->size() % kMaxChildren;
     int newBranches = 0;
 
     if (remainder > 0) {
-        ++numBranches;
         // If the remainder isn't enough to fill a node, we'll add fewer nodes to other branches.
         if (remainder >= kMinChildren) {
             remainder = 0;

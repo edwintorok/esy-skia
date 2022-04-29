@@ -110,7 +110,6 @@ DEF_GPUTEST_FOR_RENDERING_CONTEXTS(DeferredProxyTest, reporter, ctxInfo) {
     GrResourceProvider* resourceProvider = ctxInfo.grContext()->contextPriv().resourceProvider();
     const GrCaps& caps = *ctxInfo.grContext()->contextPriv().caps();
 
-    int attempt = 0; // useful for debugging
 
     for (auto origin : { kBottomLeft_GrSurfaceOrigin, kTopLeft_GrSurfaceOrigin }) {
         for (auto widthHeight : { 100, 128, 1048576 }) {
