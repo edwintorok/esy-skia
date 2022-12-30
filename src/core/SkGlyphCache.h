@@ -196,9 +196,9 @@ private:
                           bool yAxis, SkGlyph::Intercept* intercept);
     static void AddLine(const SkPoint pts[2], SkScalar axis, bool yAxis,
                         SkGlyph::Intercept* intercept);
-    static void AddQuad(const SkPoint pts[2], SkScalar axis, bool yAxis,
+    static void AddQuad(const SkPoint pts[3], SkScalar axis, bool yAxis,
                         SkGlyph::Intercept* intercept);
-    static void AddCubic(const SkPoint pts[3], SkScalar axis, bool yAxis,
+    static void AddCubic(const SkPoint pts[4], SkScalar axis, bool yAxis,
                          SkGlyph::Intercept* intercept);
     static const SkGlyph::Intercept* MatchBounds(const SkGlyph* glyph,
                                                  const SkScalar bounds[2]);
